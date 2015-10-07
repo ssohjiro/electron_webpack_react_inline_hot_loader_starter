@@ -1,6 +1,6 @@
 # electron_webpack_react_inline_hot_loader_starter
 
-1. debug
-make rixwatch
-make webpackdevserver
-gulp serve
+## debug
+1. make rixwatch
+2. make webpackdevserver
+3. gulp serve
