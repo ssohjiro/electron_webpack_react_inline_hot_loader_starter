@@ -173,4 +173,5 @@ var clientConfig = {
   plugins: plugins()
 };
 
+// Notice! webpack-dev-server reads first config of array
 module.exports = [ clientConfig, serverConfig ];
