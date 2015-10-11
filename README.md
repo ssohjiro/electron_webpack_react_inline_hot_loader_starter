@@ -2,8 +2,6 @@
 
 ## module install
 1. npm i
-2. cd client
-3. npm i
 
 ## debug
 1. make rixwatch
