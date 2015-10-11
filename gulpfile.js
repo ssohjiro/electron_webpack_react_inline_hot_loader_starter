@@ -9,8 +9,9 @@ gulp.task('serve', function () {
   electron.start();
  
   // Restart browser process 
-  //gulp.watch('app.js', electron.restart);
+  gulp.watch('dist/bundle.js', electron.restart );
  
   // Reload renderer process 
-  gulp.watch(['main.js'], electron.reload);
+  //gulp.watch(['dist/bundle.js'], electron.reload );
+
 });

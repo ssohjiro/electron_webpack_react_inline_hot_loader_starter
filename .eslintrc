@@ -1,0 +1,17 @@
+{
+	"parser": "babel-eslint",
+	"plugins": [ "react" ],
+	"env": {
+		"es6": true,
+		"node": true
+	},
+	"ecmaFeatures": {
+		"modules": true,
+		"jsx": true
+	},
+	"rules": {
+		"semi": 1,
+		"no-unused-vars": [1, {"vars": "all", "args": "after-used"}],
+		"no-undef": 2
+	}
+}

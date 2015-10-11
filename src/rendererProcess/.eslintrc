@@ -1,16 +1,18 @@
 {
 	"parser": "babel-eslint",
+	"plugins": [ "react" ],
 	"env": {
-		"browserify": true,
-		"es6": true
+		"es6": true,
+		"browser": true
 	},
 	"ecmaFeatures": {
 		"modules": true,
 		"jsx": true
 	},
 	"rules": {
-		"semi": 2,
+		"semi": 1,
 		"no-unused-vars": [1, {"vars": "all", "args": "after-used"}],
-		"no-undef": 2
+		"no-undef": 2,
+		"no-unreachable": 1
 	}
 }

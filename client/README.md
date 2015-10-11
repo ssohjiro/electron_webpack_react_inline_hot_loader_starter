@@ -1,1 +1,0 @@
-# react_inline_with_webpack_starter
