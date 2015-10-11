@@ -1,15 +1,18 @@
 /* eslint func-names: 0 */
+var argv = require('yargs').argv;
 var webpack = require('webpack');
 var path = require('path');
 var loadersByExtension = require('loaders-by-extension');
 var webpackTargetElectronRenderer = require('webpack-target-electron-renderer');
+var path = require('path');
+var fs = require('fs');
 
 var projectRoot = __dirname;
 var appRoot = path.join(projectRoot, 'src/');
 
 var serverConfig = (function(opts) {
   var entry = {
-    main: opts.prerender ? path.join(appRoot, 'main') : path.join(appRoot, 'main')
+    main: opts.prerender ? path.join(appRoot, 'app') : path.join(appRoot, 'app')
   };
 
   var loaders = {
@@ -82,25 +85,14 @@ var serverConfig = (function(opts) {
 // ------------------- client;
 
 
-var argv = require('yargs').argv;
-var webpack = require('webpack');
-var _ = require('underscore');
-var path = require('path');
-var fs = require('fs');
-//var layoutStore = require('./src/rendererProcess/store/layoutStore');
-require('es6-promise').polyfill();
+
+var dynamicRequire = require('./src/dynamicRequire');
+var layoutStore = require('./src/rendererProcess/store/layoutStore');
 
 var PRODUCTION = process.env.NODE_ENV === 'production';
 
-/*
 var sections = layoutStore.getAllData().get('sections');
-var requireStrForAllSection = 'module.exports = {\n';
-_.each( sections, function( info, i ) {
-	requireStrForAllSection += (info.sectionId + ': require('+info.modulePath+')');
-	if( i+1 < sections.length ) requireStrForAllSection += ",\n";
-});
-requireStrForAllSection += '};';
-*/
+dynamicRequire.makeLoaderFileByArray('src/_allSectionModules.js', sections );
 
 function plugins() {
   var all = [
@@ -181,5 +173,4 @@ var clientConfig = {
   plugins: plugins()
 };
 
-//module.exports = [ serverConfig, clientConfig ];
-module.exports = clientConfig;
+module.exports = [ clientConfig, serverConfig ];

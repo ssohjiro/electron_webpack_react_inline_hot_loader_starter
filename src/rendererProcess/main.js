@@ -6,8 +6,7 @@ import StoreMonitor from 'component/StoreMonitor';
 import $ from 'jquery';
 import _ from 'underscore';
 
-//import sections from 'component/section/_allSection';
-var section = {};
+import sectionComponent from '_allSectionModules';
 
 window.$ = $;
 class Main extends React.Component {

@@ -19,10 +19,10 @@ var _data = Immutable.fromJS({
 });
 
 _data = _data.set('sections', [
-	{ sectionId: 'Screenshot', sectionName: '스크린샷찍기', modulePath: 'component/section/ScreenshotSection' },
-	{ sectionId: 'Video', sectionName: '비디오만들기', modulePath: 'component/section/VideoSection' },
-	{ sectionId: 'Info', sectionName: '폴더보기', modulePath: 'component/section/InfoSection' },
-	{ sectionId: 'Setting', sectionName: '셋팅', modulePath: 'component/section/SettingSection' }
+	{ id: 'screenshot', sectionName: '스크린샷찍기', modulePath: 'component/section/ScreenshotSection' },
+	{ id: 'video', sectionName: '비디오만들기', modulePath: 'component/section/VideoSection' },
+	{ id: 'info', sectionName: '폴더보기', modulePath: 'component/section/InfoSection' },
+	{ id: 'setting', sectionName: '셋팅', modulePath: 'component/section/SettingSection' }
 ]);
 
 
@@ -45,7 +45,7 @@ Store.dispatchToken = dispatcher.register(function(action) {
 	switch ( action.type ) {
 
 		case actionType('ENTER_SECTION'):
-			var selectedSection = _.findWhere({ sectionId: action.sectionId });
+			var selectedSection = _.findWhere({ id: action.sectionId });
 			_data = _data.set('openedSection', selectedSection );
 			Store.emitChange();
 			break;
